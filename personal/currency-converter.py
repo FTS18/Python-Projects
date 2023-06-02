@@ -1,4 +1,4 @@
-with open('CurrencyData.txt') as f:
+with open('data.txt') as f:
 	lines = f.readlines()
 
 currencyDict = {}
