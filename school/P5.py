@@ -2,8 +2,8 @@
 import json
 file = open('marks.txt', 'r')
 records=json.load(file)
+from random import *
 while True:
-    from random import *
     y=["yes","y","ye","yee","yed","yew","ya","yup"]
     try:
         print("")

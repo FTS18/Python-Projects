@@ -1,26 +1,57 @@
-'''• addUser() function will add a new user in the list. User information will be in a dictionary format having name, id and city. E.g., L = [{‘name’:"Virath Kohli", "id":"18", "city":"Delhi" }, {‘name’:"Rohit Sharma", "id":"45", "city":"Nagpur" }]. 
-
-• removeUser() function will accept id as an argument and will delete the user if id exists in the list.
-
-• displayUser() function will accept id as an argument and will display the user if id exists in the list, if no id is passed it will print the list of all users'''
-import json
-file=open("users.txt", "r+")
-users=json.load(file)
+import pickle
+import os
 
 def inp():
-    name=input("NAME: ")
-    id=input("ID: ")
-    city=input("CITY: ")
-    global user 
-    user={"name":name, "id":id, "city":city }
+    uname = input("NAME: ")
+    uid = input("ID: ")
+    ucity = input("CITY: ")
+    return {"name": uname, "id": uid, "city": ucity}
 
-def addUser():
-    inp()
-    if user in users:
-        print("User already exists! ")
+def addUser(user, users):
+    for existing_user in users:
+        if user["id"] == existing_user["id"]:
+            print("User already exists!")
+            return
+    users.append(user)
+    with open("users.txt", "wb") as file:
+        pickle.dump(users, file)
+    print("User added successfully.")
+
+def removeUser(uid, users):
+    for user in users:
+        if user["id"] == uid:
+            users.remove(user)
+            with open("users.txt", "wb") as file:
+                pickle.dump(users, file)
+            print(f"User with ID {uid} removed.")
+            return
+    print(f"User with ID {uid} not found.")
+
+def displayUser(uid,users):
+    for user in users:
+        if user["id"] == uid:
+            print("NAME:",user["name"],"\nID:", user["id"],"\nCITY:", user["city"])
+            return
+    print(f"User with ID {uid} not found.")
+
+def main():
+    if os.path.exists("users.txt"):
+        with open("users.txt", "rb") as file:
+            users = pickle.load(file)
     else:
-        users.append(user)
-        with open("users.txt", "w") as file:
-            json.dump(users, file, indent=4)
-def removeUser(id):
-    print(users[id])
+        users = []
+    inpf=input("What do you want to perform:\n1) Add User (a)\n2) Remove User (r)\n3) Display User (d)\n>>")
+    if inpf=="a":
+        user = inp()
+        addUser(user, users)
+    elif inpf=="r":
+        ruid = input("ID of the user you want to remove: ")
+        removeUser(ruid, users)
+    elif inpf=="d":
+        n=input("Enter ID of user to display: ")
+        displayUser(n,users)
+    else:
+        return 
+
+if __name__ == "__main__":
+    main()

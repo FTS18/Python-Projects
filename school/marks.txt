@@ -1,1 +1,1 @@
-[["1", "Ananay", 92], ["2", "Aditya", 3], ["3", "Arunjay", 65], ["4", "Dishank", 56], ["5", "Ishan", ""], ["6", "Vansh", ""]]
+[["1", "Ananay", 92], ["2", "Aditya", 69], ["3", "Arunjay", 45], ["4", "Dishank", 56], ["5", "Ishan", ""], ["6", "Vansh", ""]]
