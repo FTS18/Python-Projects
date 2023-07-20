@@ -1,4 +1,4 @@
-sample={"Ananay":85, "Aditya":90, "Arunjay":89, "Arush":65, "Dishank":70, "Ishan":82}
+sample={"Ananay":85, "Aditya":90, "Arunjay":89, "Divyanshi": 84,"Arush":65, "Dishank":70, "Ishan":82}
 value=list(sample.values())
 key=list(sample.keys())
 L=[]
