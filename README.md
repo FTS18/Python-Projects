@@ -26,4 +26,4 @@ To run this project type the following command
 [MIT](https://choosealicense.com/licenses/mit/)
 ## Feedback
 If you have any feedback, please reach out to us at spacify1807@gmail.com<br>
-Made in 💖 by [@ananaydubey](https://www.github.com/fts18)
+Made with 💖 by [@ananaydubey](https://www.github.com/fts18)
